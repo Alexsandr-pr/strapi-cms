@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_social_social_links",
+  "info": {
+    "displayName": "SocialLink"
+  },
+  "options": {},
+  "attributes": {
+    "url": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "targetBlank": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

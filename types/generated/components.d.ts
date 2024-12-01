@@ -13,10 +13,24 @@ export interface LayoutButton extends Struct.ComponentSchema {
   };
 }
 
+export interface SocialSocialLink extends Struct.ComponentSchema {
+  collectionName: 'components_social_social_links';
+  info: {
+    displayName: 'SocialLink';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
+    targetBlank: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    url: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'layout.button': LayoutButton;
+      'social.social-link': SocialSocialLink;
     }
   }
 }
