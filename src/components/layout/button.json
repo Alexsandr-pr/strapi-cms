@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_layout_buttons",
+  "info": {
+    "displayName": "Button"
+  },
+  "options": {},
+  "attributes": {
+    "url": {
+      "type": "text",
+      "required": true
+    },
+    "buttonsColorBlue": {
+      "type": "boolean",
+      "default": false
+    },
+    "targetBlank": {
+      "type": "boolean",
+      "default": true,
+      "required": false
+    }
+  }
+}
