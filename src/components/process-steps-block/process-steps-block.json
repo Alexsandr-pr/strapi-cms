@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_process_steps_block_process_steps_blocks",
+  "info": {
+    "displayName": "Process Steps Block",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "richtext"
+    },
+    "steps": {
+      "type": "component",
+      "repeatable": true,
+      "component": "process-steps-block.process-steps-block-item"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.string-button"
+    }
+  }
+}

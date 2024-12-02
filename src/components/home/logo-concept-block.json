@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_home_logo_concept_blocks",
+  "info": {
+    "displayName": "Logo Concept Block",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "text_logo": {
+      "type": "string"
+    },
+    "logo_concept_items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "home.logo-concept-block-item"
+    }
+  }
+}

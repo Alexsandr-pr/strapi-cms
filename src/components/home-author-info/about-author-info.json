@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_home_author_info_about_author_infos",
+  "info": {
+    "displayName": "About Author Info",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "sub_title": {
+      "type": "richtext"
+    },
+    "description": {
+      "type": "customField",
+      "options": {
+        "preset": "default"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    }
+  }
+}

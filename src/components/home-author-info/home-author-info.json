@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_home_author_info_home_author_infos",
+  "info": {
+    "displayName": "Home Author Info",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "sub_title": {
+      "type": "richtext"
+    },
+    "description": {
+      "type": "customField",
+      "options": {
+        "preset": "default"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.string-button"
+    }
+  }
+}

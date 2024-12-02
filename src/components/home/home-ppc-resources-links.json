@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_home_home_ppc_resources_links",
+  "info": {
+    "displayName": "Home PPC Resources Links",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "richtext"
+    },
+    "columns": {
+      "type": "component",
+      "repeatable": true,
+      "component": "home.home-ppc-resources-column"
+    }
+  }
+}

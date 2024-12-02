@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_explore_results_preview_explore_results_previews",
+  "info": {
+    "displayName": "Explore Results Preview",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.string-button"
+    },
+    "title": {
+      "type": "richtext"
+    },
+    "sub_title": {
+      "type": "text"
+    },
+    "numbers": {
+      "type": "component",
+      "repeatable": true,
+      "component": "explore-results-preview.explore-results-number-item"
+    }
+  }
+}

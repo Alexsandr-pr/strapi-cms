@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_home_home_faqs",
+  "info": {
+    "displayName": "Home Faq",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "richtext"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.string-button"
+    },
+    "faqs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::faq.faq"
+    }
+  }
+}

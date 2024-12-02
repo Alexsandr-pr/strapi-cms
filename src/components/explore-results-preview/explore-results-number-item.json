@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_explore_results_preview_explore_results_number_items",
+  "info": {
+    "displayName": "Explore Results Number Item"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "centerPosition": {
+      "type": "boolean"
+    }
+  }
+}

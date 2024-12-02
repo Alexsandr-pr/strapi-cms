@@ -1,0 +1,70 @@
+{
+  "collectionName": "components_free_consultation_process_free_consultation_processes",
+  "info": {
+    "displayName": "Free Consultation Process",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "decor": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "title": {
+      "type": "richtext",
+      "default": "Free evaluation and recommendations",
+      "required": true
+    },
+    "step_1": {
+      "type": "text",
+      "default": "You decide what’s next",
+      "maxLength": 23,
+      "minLength": 20,
+      "required": true
+    },
+    "step_2": {
+      "type": "text",
+      "default": "30-60 minute chat to determine if we are a good fit",
+      "required": true,
+      "maxLength": 51,
+      "minLength": 46
+    },
+    "step_3": {
+      "type": "text",
+      "default": "Learning about your business and goals",
+      "maxLength": 39,
+      "minLength": 35,
+      "required": true
+    },
+    "step_4": {
+      "type": "text",
+      "default": "Recommendations, data-based projections and proposal",
+      "maxLength": 52,
+      "required": true,
+      "minLength": 51
+    },
+    "step_5": {
+      "type": "text",
+      "required": true,
+      "maxLength": 39,
+      "default": "You decide how you want to proceed",
+      "minLength": 34
+    },
+    "step_6": {
+      "type": "string",
+      "required": true,
+      "maxLength": 18,
+      "default": "No pressure. Ever.",
+      "minLength": 16
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.button"
+    }
+  }
+}

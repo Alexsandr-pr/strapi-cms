@@ -12,10 +12,26 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "footer_social_links": {
+    "footer": {
       "type": "component",
-      "repeatable": true,
-      "component": "social.social-link"
+      "repeatable": false,
+      "component": "layout.footer"
+    },
+    "header": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.header"
+    },
+    "schedule_a_consultation_button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.button"
+    },
+    "ppc_troubleshooting_button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.button",
+      "required": false
     }
   }
 }

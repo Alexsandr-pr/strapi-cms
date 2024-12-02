@@ -369,6 +369,144 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAboutPageAboutPage extends Struct.SingleTypeSchema {
+  collectionName: 'about_pages';
+  info: {
+    description: '';
+    displayName: 'About Page';
+    pluralName: 'about-pages';
+    singularName: 'about-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    author_info: Schema.Attribute.Component<
+      'home-author-info.about-author-info',
+      false
+    >;
+    consultion_process: Schema.Attribute.Component<
+      'free-consultation-process.free-consultation-process',
+      false
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::about-page.about-page'
+    > &
+      Schema.Attribute.Private;
+    main_block: Schema.Attribute.Component<'layout.pages-main-block', false>;
+    process: Schema.Attribute.Component<
+      'process-steps-block.process-steps-block',
+      false
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'layout.seo-pages-description', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiFaqCategoryFaqCategory extends Struct.CollectionTypeSchema {
+  collectionName: 'faq_categories';
+  info: {
+    description: '';
+    displayName: 'Faq_Category';
+    pluralName: 'faq-categories';
+    singularName: 'faq-category';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    faqs: Schema.Attribute.Relation<'oneToMany', 'api::faq.faq'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::faq-category.faq-category'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiFaqPageFaqPage extends Struct.SingleTypeSchema {
+  collectionName: 'faq_pages';
+  info: {
+    displayName: 'Faq Page';
+    pluralName: 'faq-pages';
+    singularName: 'faq-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::faq-page.faq-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.RichText;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiFaqFaq extends Struct.CollectionTypeSchema {
+  collectionName: 'faqs';
+  info: {
+    description: '';
+    displayName: 'Faq';
+    pluralName: 'faqs';
+    singularName: 'faq';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    faq_category: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::faq-category.faq-category'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::faq.faq'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiGlobalSettingGlobalSetting extends Struct.SingleTypeSchema {
   collectionName: 'global_settings';
   info: {
@@ -384,14 +522,90 @@ export interface ApiGlobalSettingGlobalSetting extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    footer_social_links: Schema.Attribute.Component<'social.social-link', true>;
+    footer: Schema.Attribute.Component<'layout.footer', false>;
+    header: Schema.Attribute.Component<'layout.header', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::global-setting.global-setting'
     > &
       Schema.Attribute.Private;
+    ppc_troubleshooting_button: Schema.Attribute.Component<
+      'layout.button',
+      false
+    >;
     publishedAt: Schema.Attribute.DateTime;
+    schedule_a_consultation_button: Schema.Attribute.Component<
+      'layout.button',
+      false
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
+  collectionName: 'home_pages';
+  info: {
+    description: '';
+    displayName: 'Home Page';
+    pluralName: 'home-pages';
+    singularName: 'home-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    author_info: Schema.Attribute.Component<
+      'home-author-info.home-author-info',
+      false
+    >;
+    call_to_action: Schema.Attribute.Component<
+      'call-to-action-block.call-to-action-block',
+      true
+    > &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 2;
+          min: 2;
+        },
+        number
+      >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    faq: Schema.Attribute.Component<'home.home-faq', false>;
+    features: Schema.Attribute.Component<
+      'features-block.features-block',
+      false
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::home-page.home-page'
+    > &
+      Schema.Attribute.Private;
+    main_block: Schema.Attribute.Component<'home.home-page-main-block', false> &
+      Schema.Attribute.Required;
+    ppc_resources: Schema.Attribute.Component<
+      'home.home-ppc-resources-links',
+      false
+    >;
+    process_steps: Schema.Attribute.Component<
+      'process-steps-block.process-steps-block',
+      false
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    results_preview: Schema.Attribute.Component<
+      'explore-results-preview.explore-results-preview',
+      false
+    >;
+    second_block_logo_concept: Schema.Attribute.Component<
+      'home.logo-concept-block',
+      false
+    >;
+    seo: Schema.Attribute.Component<'layout.seo-pages-description', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -941,7 +1155,12 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::about-page.about-page': ApiAboutPageAboutPage;
+      'api::faq-category.faq-category': ApiFaqCategoryFaqCategory;
+      'api::faq-page.faq-page': ApiFaqPageFaqPage;
+      'api::faq.faq': ApiFaqFaq;
       'api::global-setting.global-setting': ApiGlobalSettingGlobalSetting;
+      'api::home-page.home-page': ApiHomePageHomePage;
       'api::post.post': ApiPostPost;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

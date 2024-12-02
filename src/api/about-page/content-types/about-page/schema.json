@@ -1,0 +1,41 @@
+{
+  "kind": "singleType",
+  "collectionName": "about_pages",
+  "info": {
+    "singularName": "about-page",
+    "pluralName": "about-pages",
+    "displayName": "About Page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "main_block": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.pages-main-block"
+    },
+    "author_info": {
+      "type": "component",
+      "repeatable": false,
+      "component": "home-author-info.about-author-info"
+    },
+    "process": {
+      "type": "component",
+      "repeatable": false,
+      "component": "process-steps-block.process-steps-block"
+    },
+    "consultion_process": {
+      "type": "component",
+      "repeatable": false,
+      "component": "free-consultation-process.free-consultation-process"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.seo-pages-description"
+    }
+  }
+}

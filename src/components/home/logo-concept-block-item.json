@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_home_logo_concept_block_items",
+  "info": {
+    "displayName": "Logo Concept Block - Item"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}

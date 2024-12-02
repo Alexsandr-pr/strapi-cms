@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_features_block_features_blocks",
+  "info": {
+    "displayName": "Features Block",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "decor": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "title": {
+      "type": "richtext",
+      "required": true
+    },
+    "features_items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "features-block.features-block-list-item"
+    }
+  }
+}

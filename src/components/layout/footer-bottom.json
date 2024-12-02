@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_layout_footer_bottoms",
+  "info": {
+    "displayName": "Footer Bottom",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "all_right_text": {
+      "type": "text",
+      "default": "© 2024 D2CEBL. ALL RIGHTS RESERVED."
+    },
+    "privacy_policy_title": {
+      "type": "string"
+    },
+    "terms_of_use_title": {
+      "type": "string"
+    }
+  }
+}
