@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "results_pages",
+  "info": {
+    "singularName": "results-page",
+    "pluralName": "results-pages",
+    "displayName": "Results Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "main_block": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.pages-main-block"
+    }
+  }
+}

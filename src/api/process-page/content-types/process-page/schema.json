@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "process_pages",
+  "info": {
+    "singularName": "process-page",
+    "pluralName": "process-pages",
+    "displayName": "Process Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "main_block": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.pages-main-block"
+    }
+  }
+}

@@ -13,6 +13,39 @@ export interface CallToActionBlockCallToActionBlock
   };
 }
 
+export interface ExampleIndustriesExampleIndustries
+  extends Struct.ComponentSchema {
+  collectionName: 'components_example_industries_example_industries';
+  info: {
+    displayName: 'Example Industries';
+  };
+  attributes: {
+    background: Schema.Attribute.Text & Schema.Attribute.Required;
+    image: Schema.Attribute.Media<'images' | 'videos'> &
+      Schema.Attribute.Required;
+    target: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.RichText;
+  };
+}
+
+export interface ExampleSettingsExampleSettings extends Struct.ComponentSchema {
+  collectionName: 'components_example_settings_example_settings';
+  info: {
+    displayName: 'Example Settings';
+  };
+  attributes: {
+    background_image: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required;
+    background_title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Background:'>;
+    target_image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    target_title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Target:'>;
+  };
+}
+
 export interface ExploreResultsPreviewExploreResultsNumberItem
   extends Struct.ComponentSchema {
   collectionName: 'components_explore_results_preview_explore_results_number_items';
@@ -396,6 +429,8 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'call-to-action-block.call-to-action-block': CallToActionBlockCallToActionBlock;
+      'example-industries.example-industries': ExampleIndustriesExampleIndustries;
+      'example-settings.example-settings': ExampleSettingsExampleSettings;
       'explore-results-preview.explore-results-number-item': ExploreResultsPreviewExploreResultsNumberItem;
       'explore-results-preview.explore-results-preview': ExploreResultsPreviewExploreResultsPreview;
       'features-block.features-block': FeaturesBlockFeaturesBlock;

@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_example_settings_example_settings",
+  "info": {
+    "displayName": "Example Settings"
+  },
+  "options": {},
+  "attributes": {
+    "target_title": {
+      "type": "string",
+      "default": "Target:",
+      "required": true
+    },
+    "target_image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "background_title": {
+      "type": "string",
+      "required": true,
+      "default": "Background:"
+    },
+    "background_image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

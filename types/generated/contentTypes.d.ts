@@ -612,6 +612,50 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiIndustriesPageIndustriesPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'industries_pages';
+  info: {
+    description: '';
+    displayName: 'Industries Page';
+    pluralName: 'industries-pages';
+    singularName: 'industries-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    consultion_process: Schema.Attribute.Component<
+      'free-consultation-process.free-consultation-process',
+      false
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    example: Schema.Attribute.Component<
+      'example-industries.example-industries',
+      true
+    >;
+    example_settings: Schema.Attribute.Component<
+      'example-settings.example-settings',
+      false
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::industries-page.industries-page'
+    > &
+      Schema.Attribute.Private;
+    main_block: Schema.Attribute.Component<'layout.pages-main-block', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'layout.seo-pages-description', false> &
+      Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPostPost extends Struct.CollectionTypeSchema {
   collectionName: 'posts';
   info: {
@@ -640,6 +684,62 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'title'>;
     title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiProcessPageProcessPage extends Struct.SingleTypeSchema {
+  collectionName: 'process_pages';
+  info: {
+    displayName: 'Process Page';
+    pluralName: 'process-pages';
+    singularName: 'process-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::process-page.process-page'
+    > &
+      Schema.Attribute.Private;
+    main_block: Schema.Attribute.Component<'layout.pages-main-block', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiResultsPageResultsPage extends Struct.SingleTypeSchema {
+  collectionName: 'results_pages';
+  info: {
+    displayName: 'Results Page';
+    pluralName: 'results-pages';
+    singularName: 'results-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::results-page.results-page'
+    > &
+      Schema.Attribute.Private;
+    main_block: Schema.Attribute.Component<'layout.pages-main-block', false>;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1161,7 +1261,10 @@ declare module '@strapi/strapi' {
       'api::faq.faq': ApiFaqFaq;
       'api::global-setting.global-setting': ApiGlobalSettingGlobalSetting;
       'api::home-page.home-page': ApiHomePageHomePage;
+      'api::industries-page.industries-page': ApiIndustriesPageIndustriesPage;
       'api::post.post': ApiPostPost;
+      'api::process-page.process-page': ApiProcessPageProcessPage;
+      'api::results-page.results-page': ApiResultsPageResultsPage;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
