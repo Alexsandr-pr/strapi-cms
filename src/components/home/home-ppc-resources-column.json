@@ -1,12 +1,14 @@
 {
   "collectionName": "components_home_home_ppc_resources_columns",
   "info": {
-    "displayName": "Home PPC Resources Column"
+    "displayName": "Home PPC Resources Column",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "posts": {
       "type": "relation",
@@ -16,7 +18,8 @@
     "button": {
       "type": "component",
       "repeatable": false,
-      "component": "layout.string-button"
+      "component": "layout.string-button",
+      "required": true
     }
   }
 }

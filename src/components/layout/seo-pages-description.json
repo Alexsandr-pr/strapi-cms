@@ -1,15 +1,18 @@
 {
   "collectionName": "components_layout_seo_pages_descriptions",
   "info": {
-    "displayName": "Seo Pages Description"
+    "displayName": "Seo Pages Description",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "title": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "description": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "keywords": {
       "type": "text"

@@ -15,22 +15,26 @@
     "main_block": {
       "type": "component",
       "repeatable": false,
-      "component": "layout.pages-main-block"
+      "component": "layout.pages-main-block",
+      "required": true
     },
     "example": {
       "type": "component",
       "repeatable": true,
-      "component": "example-industries.example-industries"
+      "component": "example-industries.example-industries",
+      "required": true
     },
     "example_settings": {
       "type": "component",
       "repeatable": false,
-      "component": "example-settings.example-settings"
+      "component": "example-settings.example-settings",
+      "required": true
     },
     "consultion_process": {
       "type": "component",
       "repeatable": false,
-      "component": "free-consultation-process.free-consultation-process"
+      "component": "free-consultation-process.free-consultation-process",
+      "required": true
     },
     "seo": {
       "type": "component",

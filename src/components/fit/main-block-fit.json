@@ -16,24 +16,27 @@
       "component": "layout.button"
     },
     "right_decor": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "description": {
       "type": "customField",
       "options": {
         "preset": "default"
       },
-      "customField": "plugin::ckeditor5.CKEditor"
+      "customField": "plugin::ckeditor5.CKEditor",
+      "required": true
     },
     "list_items": {
       "displayName": "List Element FIt Page",
       "type": "component",
       "repeatable": true,
-      "component": "fit.list-element-f-it-page"
+      "component": "fit.list-element-f-it-page",
+      "required": true
     }
   }
 }

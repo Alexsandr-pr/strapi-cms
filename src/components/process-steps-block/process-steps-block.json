@@ -7,12 +7,14 @@
   "options": {},
   "attributes": {
     "title": {
-      "type": "richtext"
+      "type": "richtext",
+      "required": true
     },
     "steps": {
       "type": "component",
       "repeatable": true,
-      "component": "process-steps-block.process-steps-block-item"
+      "component": "process-steps-block.process-steps-block-item",
+      "required": true
     },
     "button": {
       "type": "component",

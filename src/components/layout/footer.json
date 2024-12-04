@@ -7,17 +7,20 @@
   "options": {},
   "attributes": {
     "socials_title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "socials_links": {
       "type": "component",
       "repeatable": true,
-      "component": "social.social-link"
+      "component": "social.social-link",
+      "required": true
     },
     "footer_bottom": {
       "type": "component",
       "repeatable": false,
-      "component": "layout.footer-bottom"
+      "component": "layout.footer-bottom",
+      "required": true
     }
   }
 }

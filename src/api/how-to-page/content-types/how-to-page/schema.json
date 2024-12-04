@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "how_to_pages",
+  "info": {
+    "singularName": "how-to-page",
+    "pluralName": "how-to-pages",
+    "displayName": "How To Page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "richtext",
+      "required": true
+    },
+    "image_header_background": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.seo-pages-description"
+    }
+  }
+}

@@ -9,18 +9,22 @@
     "button": {
       "type": "component",
       "repeatable": false,
-      "component": "layout.string-button"
+      "component": "layout.string-button",
+      "required": true
     },
     "title": {
-      "type": "richtext"
+      "type": "richtext",
+      "required": true
     },
     "sub_title": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "numbers": {
       "type": "component",
       "repeatable": true,
-      "component": "explore-results-preview.explore-results-number-item"
+      "component": "explore-results-preview.explore-results-number-item",
+      "required": true
     }
   }
 }

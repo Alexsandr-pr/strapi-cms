@@ -8,13 +8,16 @@
   "attributes": {
     "all_right_text": {
       "type": "text",
-      "default": "© 2024 D2CEBL. ALL RIGHTS RESERVED."
+      "default": "© 2024 D2CEBL. ALL RIGHTS RESERVED.",
+      "required": true
     },
     "privacy_policy_title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "terms_of_use_title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     }
   }
 }

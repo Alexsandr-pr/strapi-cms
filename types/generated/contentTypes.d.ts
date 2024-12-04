@@ -384,11 +384,13 @@ export interface ApiAboutPageAboutPage extends Struct.SingleTypeSchema {
     author_info: Schema.Attribute.Component<
       'home-author-info.about-author-info',
       false
-    >;
+    > &
+      Schema.Attribute.Required;
     consultion_process: Schema.Attribute.Component<
       'free-consultation-process.free-consultation-process',
       false
-    >;
+    > &
+      Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -398,13 +400,16 @@ export interface ApiAboutPageAboutPage extends Struct.SingleTypeSchema {
       'api::about-page.about-page'
     > &
       Schema.Attribute.Private;
-    main_block: Schema.Attribute.Component<'layout.pages-main-block', false>;
+    main_block: Schema.Attribute.Component<'layout.pages-main-block', false> &
+      Schema.Attribute.Required;
     process: Schema.Attribute.Component<
       'process-steps-block.process-steps-block',
       false
-    >;
+    > &
+      Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
-    seo: Schema.Attribute.Component<'layout.seo-pages-description', false>;
+    seo: Schema.Attribute.Component<'layout.seo-pages-description', false> &
+      Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -475,6 +480,7 @@ export interface ApiFaqCategoryFaqCategory extends Struct.CollectionTypeSchema {
 export interface ApiFaqPageFaqPage extends Struct.SingleTypeSchema {
   collectionName: 'faq_pages';
   info: {
+    description: '';
     displayName: 'Faq Page';
     pluralName: 'faq-pages';
     singularName: 'faq-page';
@@ -493,7 +499,9 @@ export interface ApiFaqPageFaqPage extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.RichText;
+    seo: Schema.Attribute.Component<'layout.seo-pages-description', false> &
+      Schema.Attribute.Required;
+    title: Schema.Attribute.RichText & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -552,8 +560,10 @@ export interface ApiGlobalSettingGlobalSetting extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    footer: Schema.Attribute.Component<'layout.footer', false>;
-    header: Schema.Attribute.Component<'layout.header', false>;
+    footer: Schema.Attribute.Component<'layout.footer', false> &
+      Schema.Attribute.Required;
+    header: Schema.Attribute.Component<'layout.header', false> &
+      Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -563,12 +573,14 @@ export interface ApiGlobalSettingGlobalSetting extends Struct.SingleTypeSchema {
     ppc_troubleshooting_button: Schema.Attribute.Component<
       'layout.button',
       false
-    >;
+    > &
+      Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     schedule_a_consultation_button: Schema.Attribute.Component<
       'layout.button',
       false
-    >;
+    > &
+      Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -590,7 +602,8 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
     author_info: Schema.Attribute.Component<
       'home-author-info.home-author-info',
       false
-    >;
+    > &
+      Schema.Attribute.Required;
     call_to_action: Schema.Attribute.Component<
       'call-to-action-block.call-to-action-block',
       true
@@ -605,11 +618,13 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    faq: Schema.Attribute.Component<'home.home-faq', false>;
+    faq: Schema.Attribute.Component<'home.home-faq', false> &
+      Schema.Attribute.Required;
     features: Schema.Attribute.Component<
       'features-block.features-block',
       false
-    >;
+    > &
+      Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -621,21 +636,58 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
     ppc_resources: Schema.Attribute.Component<
       'home.home-ppc-resources-links',
       false
-    >;
+    > &
+      Schema.Attribute.Required;
     process_steps: Schema.Attribute.Component<
       'process-steps-block.process-steps-block',
       false
-    >;
+    > &
+      Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     results_preview: Schema.Attribute.Component<
       'explore-results-preview.explore-results-preview',
       false
-    >;
+    > &
+      Schema.Attribute.Required;
     second_block_logo_concept: Schema.Attribute.Component<
       'home.logo-concept-block',
       false
-    >;
+    > &
+      Schema.Attribute.Required;
+    seo: Schema.Attribute.Component<'layout.seo-pages-description', false> &
+      Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiHowToPageHowToPage extends Struct.SingleTypeSchema {
+  collectionName: 'how_to_pages';
+  info: {
+    description: '';
+    displayName: 'How To Page';
+    pluralName: 'how-to-pages';
+    singularName: 'how-to-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    image_header_background: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::how-to-page.how-to-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'layout.seo-pages-description', false>;
+    title: Schema.Attribute.RichText & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -658,25 +710,29 @@ export interface ApiIndustriesPageIndustriesPage
     consultion_process: Schema.Attribute.Component<
       'free-consultation-process.free-consultation-process',
       false
-    >;
+    > &
+      Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     example: Schema.Attribute.Component<
       'example-industries.example-industries',
       true
-    >;
+    > &
+      Schema.Attribute.Required;
     example_settings: Schema.Attribute.Component<
       'example-settings.example-settings',
       false
-    >;
+    > &
+      Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::industries-page.industries-page'
     > &
       Schema.Attribute.Private;
-    main_block: Schema.Attribute.Component<'layout.pages-main-block', false>;
+    main_block: Schema.Attribute.Component<'layout.pages-main-block', false> &
+      Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'layout.seo-pages-description', false> &
       Schema.Attribute.Required;
@@ -729,6 +785,15 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
   };
   attributes: {
     category: Schema.Attribute.Relation<'manyToOne', 'api::category.category'>;
+    conclusion: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    conclusion_title: Schema.Attribute.Text &
+      Schema.Attribute.DefaultTo<'Conclusion'>;
     content: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
@@ -767,6 +832,7 @@ export interface ApiPrivacyPolicyPagePrivacyPolicyPage
   extends Struct.SingleTypeSchema {
   collectionName: 'privacy_policy_pages';
   info: {
+    description: '';
     displayName: 'Privacy Policy Page';
     pluralName: 'privacy-policy-pages';
     singularName: 'privacy-policy-page';
@@ -785,7 +851,7 @@ export interface ApiPrivacyPolicyPagePrivacyPolicyPage
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.Text;
+    title: Schema.Attribute.Text & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -807,39 +873,47 @@ export interface ApiProcessPageProcessPage extends Struct.SingleTypeSchema {
     consultion_process: Schema.Attribute.Component<
       'free-consultation-process.free-consultation-process',
       false
-    >;
+    > &
+      Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     features_block: Schema.Attribute.Component<
       'features-block.features-block',
       false
-    >;
+    > &
+      Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::process-page.process-page'
     > &
       Schema.Attribute.Private;
-    main_block: Schema.Attribute.Component<'layout.pages-main-block', false>;
+    main_block: Schema.Attribute.Component<'layout.pages-main-block', false> &
+      Schema.Attribute.Required;
     process_step_1: Schema.Attribute.Component<
       'process.process-block-1',
       false
-    >;
+    > &
+      Schema.Attribute.Required;
     process_step_2: Schema.Attribute.Component<
       'process.process-block-2',
       false
-    >;
+    > &
+      Schema.Attribute.Required;
     process_step_3: Schema.Attribute.Component<
       'process.process-block-2',
       false
-    >;
+    > &
+      Schema.Attribute.Required;
     process_step_4: Schema.Attribute.Component<
       'process.process-block-2',
       false
-    >;
+    > &
+      Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
-    seo: Schema.Attribute.Component<'layout.seo-pages-description', false>;
+    seo: Schema.Attribute.Component<'layout.seo-pages-description', false> &
+      Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -861,27 +935,32 @@ export interface ApiResultsPageResultsPage extends Struct.SingleTypeSchema {
     advantages: Schema.Attribute.Component<
       'layout.results-our-advantages',
       false
-    >;
+    > &
+      Schema.Attribute.Required;
     consultion_process: Schema.Attribute.Component<
       'free-consultation-process.free-consultation-process',
       false
-    >;
+    > &
+      Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     examples_results: Schema.Attribute.Component<
       'result-example.result-example',
       true
-    >;
+    > &
+      Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::results-page.results-page'
     > &
       Schema.Attribute.Private;
-    main_block: Schema.Attribute.Component<'layout.pages-main-block', false>;
+    main_block: Schema.Attribute.Component<'layout.pages-main-block', false> &
+      Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
-    seo: Schema.Attribute.Component<'layout.seo-pages-description', false>;
+    seo: Schema.Attribute.Component<'layout.seo-pages-description', false> &
+      Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -904,24 +983,29 @@ export interface ApiTemplateFitPageTemplateFitPage
     consultion_process: Schema.Attribute.Component<
       'free-consultation-process.free-consultation-process',
       false
-    >;
+    > &
+      Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     features_block: Schema.Attribute.Component<
       'features-block.features-block',
       false
-    >;
+    > &
+      Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::template-fit-page.template-fit-page'
     > &
       Schema.Attribute.Private;
-    main_block: Schema.Attribute.Component<'fit.main-block-fit', false>;
+    main_block: Schema.Attribute.Component<'fit.main-block-fit', false> &
+      Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
-    second_block: Schema.Attribute.Component<'fit.second-block-fit', false>;
-    seo: Schema.Attribute.Component<'layout.seo-pages-description', false>;
+    second_block: Schema.Attribute.Component<'fit.second-block-fit', false> &
+      Schema.Attribute.Required;
+    seo: Schema.Attribute.Component<'layout.seo-pages-description', false> &
+      Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -932,6 +1016,7 @@ export interface ApiTermsOfUsePageTermsOfUsePage
   extends Struct.SingleTypeSchema {
   collectionName: 'terms_of_use_pages';
   info: {
+    description: '';
     displayName: 'Terms of Use Page';
     pluralName: 'terms-of-use-pages';
     singularName: 'terms-of-use-page';
@@ -950,7 +1035,7 @@ export interface ApiTermsOfUsePageTermsOfUsePage
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.Text;
+    title: Schema.Attribute.Text & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1473,6 +1558,7 @@ declare module '@strapi/strapi' {
       'api::faq.faq': ApiFaqFaq;
       'api::global-setting.global-setting': ApiGlobalSettingGlobalSetting;
       'api::home-page.home-page': ApiHomePageHomePage;
+      'api::how-to-page.how-to-page': ApiHowToPageHowToPage;
       'api::industries-page.industries-page': ApiIndustriesPageIndustriesPage;
       'api::post-type.post-type': ApiPostTypePostType;
       'api::post.post': ApiPostPost;

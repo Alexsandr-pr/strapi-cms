@@ -7,12 +7,14 @@
   "options": {},
   "attributes": {
     "text_logo": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "logo_concept_items": {
       "type": "component",
       "repeatable": true,
-      "component": "home.logo-concept-block-item"
+      "component": "home.logo-concept-block-item",
+      "required": true
     }
   }
 }

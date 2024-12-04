@@ -1,19 +1,22 @@
 {
   "collectionName": "components_process_steps_block_process_steps_block_items",
   "info": {
-    "displayName": "ProcessStepsBlockItem"
+    "displayName": "ProcessStepsBlockItem",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "title": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "description": {
       "type": "customField",
       "options": {
         "preset": "default"
       },
-      "customField": "plugin::ckeditor5.CKEditor"
+      "customField": "plugin::ckeditor5.CKEditor",
+      "required": true
     }
   }
 }

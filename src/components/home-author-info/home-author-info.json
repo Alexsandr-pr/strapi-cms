@@ -7,22 +7,26 @@
   "options": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "sub_title": {
-      "type": "richtext"
+      "type": "richtext",
+      "required": true
     },
     "description": {
       "type": "customField",
       "options": {
         "preset": "default"
       },
-      "customField": "plugin::ckeditor5.CKEditor"
+      "customField": "plugin::ckeditor5.CKEditor",
+      "required": true
     },
     "button": {
       "type": "component",
       "repeatable": false,
-      "component": "layout.string-button"
+      "component": "layout.string-button",
+      "required": true
     }
   }
 }

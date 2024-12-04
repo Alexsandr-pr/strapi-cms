@@ -21,22 +21,26 @@
     "second_block_logo_concept": {
       "type": "component",
       "repeatable": false,
-      "component": "home.logo-concept-block"
+      "component": "home.logo-concept-block",
+      "required": true
     },
     "features": {
       "type": "component",
       "repeatable": false,
-      "component": "features-block.features-block"
+      "component": "features-block.features-block",
+      "required": true
     },
     "process_steps": {
       "type": "component",
       "repeatable": false,
-      "component": "process-steps-block.process-steps-block"
+      "component": "process-steps-block.process-steps-block",
+      "required": true
     },
     "results_preview": {
       "type": "component",
       "repeatable": false,
-      "component": "explore-results-preview.explore-results-preview"
+      "component": "explore-results-preview.explore-results-preview",
+      "required": true
     },
     "call_to_action": {
       "type": "component",
@@ -48,22 +52,26 @@
     "author_info": {
       "type": "component",
       "repeatable": false,
-      "component": "home-author-info.home-author-info"
+      "component": "home-author-info.home-author-info",
+      "required": true
     },
     "faq": {
       "type": "component",
       "repeatable": false,
-      "component": "home.home-faq"
+      "component": "home.home-faq",
+      "required": true
     },
     "ppc_resources": {
       "type": "component",
       "repeatable": false,
-      "component": "home.home-ppc-resources-links"
+      "component": "home.home-ppc-resources-links",
+      "required": true
     },
     "seo": {
       "type": "component",
       "repeatable": false,
-      "component": "layout.seo-pages-description"
+      "component": "layout.seo-pages-description",
+      "required": true
     }
   }
 }

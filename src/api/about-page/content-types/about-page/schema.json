@@ -15,27 +15,32 @@
     "main_block": {
       "type": "component",
       "repeatable": false,
-      "component": "layout.pages-main-block"
+      "component": "layout.pages-main-block",
+      "required": true
     },
     "author_info": {
       "type": "component",
       "repeatable": false,
-      "component": "home-author-info.about-author-info"
+      "component": "home-author-info.about-author-info",
+      "required": true
     },
     "process": {
       "type": "component",
       "repeatable": false,
-      "component": "process-steps-block.process-steps-block"
+      "component": "process-steps-block.process-steps-block",
+      "required": true
     },
     "consultion_process": {
       "type": "component",
       "repeatable": false,
-      "component": "free-consultation-process.free-consultation-process"
+      "component": "free-consultation-process.free-consultation-process",
+      "required": true
     },
     "seo": {
       "type": "component",
       "repeatable": false,
-      "component": "layout.seo-pages-description"
+      "component": "layout.seo-pages-description",
+      "required": true
     }
   }
 }

@@ -52,6 +52,17 @@
       "relation": "manyToOne",
       "target": "api::category.category",
       "inversedBy": "posts"
+    },
+    "conclusion": {
+      "type": "customField",
+      "options": {
+        "preset": "default"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "conclusion_title": {
+      "type": "text",
+      "default": "Conclusion"
     }
   }
 }

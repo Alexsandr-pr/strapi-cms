@@ -18,6 +18,7 @@ export interface ExampleIndustriesExampleIndustries
   extends Struct.ComponentSchema {
   collectionName: 'components_example_industries_example_industries';
   info: {
+    description: '';
     displayName: 'Example Industries';
   };
   attributes: {
@@ -25,7 +26,7 @@ export interface ExampleIndustriesExampleIndustries
     image: Schema.Attribute.Media<'images' | 'videos'> &
       Schema.Attribute.Required;
     target: Schema.Attribute.String & Schema.Attribute.Required;
-    title: Schema.Attribute.RichText;
+    title: Schema.Attribute.RichText & Schema.Attribute.Required;
   };
 }
 
@@ -51,12 +52,13 @@ export interface ExploreResultsPreviewExploreResultsNumberItem
   extends Struct.ComponentSchema {
   collectionName: 'components_explore_results_preview_explore_results_number_items';
   info: {
+    description: '';
     displayName: 'Explore Results Number Item';
   };
   attributes: {
     centerPosition: Schema.Attribute.Boolean;
-    description: Schema.Attribute.String;
-    title: Schema.Attribute.String;
+    description: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -68,13 +70,15 @@ export interface ExploreResultsPreviewExploreResultsPreview
     displayName: 'Explore Results Preview';
   };
   attributes: {
-    button: Schema.Attribute.Component<'layout.string-button', false>;
+    button: Schema.Attribute.Component<'layout.string-button', false> &
+      Schema.Attribute.Required;
     numbers: Schema.Attribute.Component<
       'explore-results-preview.explore-results-number-item',
       true
-    >;
-    sub_title: Schema.Attribute.Text;
-    title: Schema.Attribute.RichText;
+    > &
+      Schema.Attribute.Required;
+    sub_title: Schema.Attribute.Text & Schema.Attribute.Required;
+    title: Schema.Attribute.RichText & Schema.Attribute.Required;
   };
 }
 
@@ -90,7 +94,8 @@ export interface FeaturesBlockFeaturesBlock extends Struct.ComponentSchema {
     features_items: Schema.Attribute.Component<
       'features-block.features-block-list-item',
       true
-    >;
+    > &
+      Schema.Attribute.Required;
     title: Schema.Attribute.RichText & Schema.Attribute.Required;
   };
 }
@@ -129,14 +134,16 @@ export interface FitMainBlockFit extends Struct.ComponentSchema {
   attributes: {
     button: Schema.Attribute.Component<'layout.button', false>;
     description: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
           preset: 'default';
         }
       >;
-    list_items: Schema.Attribute.Component<'fit.list-element-f-it-page', true>;
-    right_decor: Schema.Attribute.Media<'images'>;
+    list_items: Schema.Attribute.Component<'fit.list-element-f-it-page', true> &
+      Schema.Attribute.Required;
+    right_decor: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     title: Schema.Attribute.RichText & Schema.Attribute.Required;
   };
 }
@@ -168,7 +175,7 @@ export interface FreeConsultationProcessFreeConsultationProcess
   };
   attributes: {
     button: Schema.Attribute.Component<'layout.button', false>;
-    decor: Schema.Attribute.Media<'images'>;
+    decor: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     step_1: Schema.Attribute.Text &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMaxLength<{
@@ -225,14 +232,15 @@ export interface HomeAuthorInfoAboutAuthorInfo extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
           preset: 'default';
         }
       >;
-    sub_title: Schema.Attribute.RichText;
-    title: Schema.Attribute.String;
+    sub_title: Schema.Attribute.RichText & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -243,16 +251,18 @@ export interface HomeAuthorInfoHomeAuthorInfo extends Struct.ComponentSchema {
     displayName: 'Home Author Info';
   };
   attributes: {
-    button: Schema.Attribute.Component<'layout.string-button', false>;
+    button: Schema.Attribute.Component<'layout.string-button', false> &
+      Schema.Attribute.Required;
     description: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
           preset: 'default';
         }
       >;
-    sub_title: Schema.Attribute.RichText;
-    title: Schema.Attribute.String;
+    sub_title: Schema.Attribute.RichText & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -263,9 +273,10 @@ export interface HomeHomeFaq extends Struct.ComponentSchema {
     displayName: 'Home Faq';
   };
   attributes: {
-    button: Schema.Attribute.Component<'layout.string-button', false>;
+    button: Schema.Attribute.Component<'layout.string-button', false> &
+      Schema.Attribute.Required;
     faqs: Schema.Attribute.Relation<'oneToMany', 'api::faq.faq'>;
-    title: Schema.Attribute.RichText;
+    title: Schema.Attribute.RichText & Schema.Attribute.Required;
   };
 }
 
@@ -278,19 +289,21 @@ export interface HomeHomePageMainBlock extends Struct.ComponentSchema {
   attributes: {
     image: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
-    title: Schema.Attribute.RichText;
+    title: Schema.Attribute.RichText & Schema.Attribute.Required;
   };
 }
 
 export interface HomeHomePpcResourcesColumn extends Struct.ComponentSchema {
   collectionName: 'components_home_home_ppc_resources_columns';
   info: {
+    description: '';
     displayName: 'Home PPC Resources Column';
   };
   attributes: {
-    button: Schema.Attribute.Component<'layout.string-button', false>;
+    button: Schema.Attribute.Component<'layout.string-button', false> &
+      Schema.Attribute.Required;
     posts: Schema.Attribute.Relation<'oneToMany', 'api::post.post'>;
-    title: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -301,8 +314,12 @@ export interface HomeHomePpcResourcesLinks extends Struct.ComponentSchema {
     displayName: 'Home PPC Resources Links';
   };
   attributes: {
-    columns: Schema.Attribute.Component<'home.home-ppc-resources-column', true>;
-    title: Schema.Attribute.RichText;
+    columns: Schema.Attribute.Component<
+      'home.home-ppc-resources-column',
+      true
+    > &
+      Schema.Attribute.Required;
+    title: Schema.Attribute.RichText & Schema.Attribute.Required;
   };
 }
 
@@ -316,8 +333,9 @@ export interface HomeLogoConceptBlock extends Struct.ComponentSchema {
     logo_concept_items: Schema.Attribute.Component<
       'home.logo-concept-block-item',
       true
-    >;
-    text_logo: Schema.Attribute.String;
+    > &
+      Schema.Attribute.Required;
+    text_logo: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -353,8 +371,10 @@ export interface LayoutButton extends Struct.ComponentSchema {
     buttonsColorBlue: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<false>;
     targetBlank: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
-    title: Schema.Attribute.String;
-    url: Schema.Attribute.Text & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    url: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'/ppc-resources/ppc-troubleshooting'>;
   };
 }
 
@@ -365,9 +385,11 @@ export interface LayoutFooter extends Struct.ComponentSchema {
     displayName: 'Footer';
   };
   attributes: {
-    footer_bottom: Schema.Attribute.Component<'layout.footer-bottom', false>;
-    socials_links: Schema.Attribute.Component<'social.social-link', true>;
-    socials_title: Schema.Attribute.String;
+    footer_bottom: Schema.Attribute.Component<'layout.footer-bottom', false> &
+      Schema.Attribute.Required;
+    socials_links: Schema.Attribute.Component<'social.social-link', true> &
+      Schema.Attribute.Required;
+    socials_title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -379,9 +401,10 @@ export interface LayoutFooterBottom extends Struct.ComponentSchema {
   };
   attributes: {
     all_right_text: Schema.Attribute.Text &
+      Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'\u00A9 2024\u00A0D2CEBL. ALL RIGHTS RESERVED.'>;
-    privacy_policy_title: Schema.Attribute.String;
-    terms_of_use_title: Schema.Attribute.String;
+    privacy_policy_title: Schema.Attribute.String & Schema.Attribute.Required;
+    terms_of_use_title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -392,8 +415,7 @@ export interface LayoutHeader extends Struct.ComponentSchema {
     displayName: 'Header';
   };
   attributes: {
-    logo: Schema.Attribute.Media<'images' | 'files'> &
-      Schema.Attribute.Required;
+    logo: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
   };
 }
 
@@ -420,37 +442,41 @@ export interface LayoutPagesMainBlock extends Struct.ComponentSchema {
 export interface LayoutResultsOurAdvantages extends Struct.ComponentSchema {
   collectionName: 'components_layout_results_our_advantages';
   info: {
+    description: '';
     displayName: 'Results - Our Advantages';
   };
   attributes: {
     advantages_string: Schema.Attribute.Component<
       'layout.advantages-string',
       true
-    >;
-    result_title: Schema.Attribute.String;
+    > &
+      Schema.Attribute.Required;
+    result_title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
 export interface LayoutSeoPagesDescription extends Struct.ComponentSchema {
   collectionName: 'components_layout_seo_pages_descriptions';
   info: {
+    description: '';
     displayName: 'Seo Pages Description';
   };
   attributes: {
-    description: Schema.Attribute.Text;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
     keywords: Schema.Attribute.Text;
-    title: Schema.Attribute.Text;
+    title: Schema.Attribute.Text & Schema.Attribute.Required;
   };
 }
 
 export interface LayoutStringButton extends Struct.ComponentSchema {
   collectionName: 'components_layout_string_buttons';
   info: {
+    description: '';
     displayName: 'StringButton';
   };
   attributes: {
-    title: Schema.Attribute.String;
-    url: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    url: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -466,8 +492,9 @@ export interface ProcessStepsBlockProcessStepsBlock
     steps: Schema.Attribute.Component<
       'process-steps-block.process-steps-block-item',
       true
-    >;
-    title: Schema.Attribute.RichText;
+    > &
+      Schema.Attribute.Required;
+    title: Schema.Attribute.RichText & Schema.Attribute.Required;
   };
 }
 
@@ -475,17 +502,19 @@ export interface ProcessStepsBlockProcessStepsBlockItem
   extends Struct.ComponentSchema {
   collectionName: 'components_process_steps_block_process_steps_block_items';
   info: {
+    description: '';
     displayName: 'ProcessStepsBlockItem';
   };
   attributes: {
     description: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
           preset: 'default';
         }
       >;
-    title: Schema.Attribute.Text;
+    title: Schema.Attribute.Text & Schema.Attribute.Required;
   };
 }
 
@@ -498,6 +527,7 @@ export interface ProcessProcessBlock1 extends Struct.ComponentSchema {
   attributes: {
     description: Schema.Attribute.Text;
     step_1: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
@@ -505,6 +535,7 @@ export interface ProcessProcessBlock1 extends Struct.ComponentSchema {
         }
       >;
     step_2: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
@@ -512,6 +543,7 @@ export interface ProcessProcessBlock1 extends Struct.ComponentSchema {
         }
       >;
     step_3: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
@@ -519,13 +551,14 @@ export interface ProcessProcessBlock1 extends Struct.ComponentSchema {
         }
       >;
     step_4: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
           preset: 'default';
         }
       >;
-    title: Schema.Attribute.RichText;
+    title: Schema.Attribute.RichText & Schema.Attribute.Required;
   };
 }
 
@@ -538,6 +571,7 @@ export interface ProcessProcessBlock2 extends Struct.ComponentSchema {
   attributes: {
     description: Schema.Attribute.Text;
     step_1: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
@@ -545,6 +579,7 @@ export interface ProcessProcessBlock2 extends Struct.ComponentSchema {
         }
       >;
     step_2: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
@@ -552,13 +587,14 @@ export interface ProcessProcessBlock2 extends Struct.ComponentSchema {
         }
       >;
     step_3: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
           preset: 'default';
         }
       >;
-    title: Schema.Attribute.RichText;
+    title: Schema.Attribute.RichText & Schema.Attribute.Required;
   };
 }
 
@@ -595,11 +631,11 @@ export interface ResultExampleResultExample extends Struct.ComponentSchema {
 export interface SocialSocialLink extends Struct.ComponentSchema {
   collectionName: 'components_social_social_links';
   info: {
+    description: '';
     displayName: 'SocialLink';
   };
   attributes: {
-    image: Schema.Attribute.Media<'images' | 'files'> &
-      Schema.Attribute.Required;
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     targetBlank: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     url: Schema.Attribute.String & Schema.Attribute.Required;
   };

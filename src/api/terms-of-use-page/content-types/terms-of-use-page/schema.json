@@ -4,7 +4,8 @@
   "info": {
     "singularName": "terms-of-use-page",
     "pluralName": "terms-of-use-pages",
-    "displayName": "Terms of Use Page"
+    "displayName": "Terms of Use Page",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,7 +13,8 @@
   "pluginOptions": {},
   "attributes": {
     "title": {
-      "type": "text"
+      "type": "text",
+      "required": true
     }
   }
 }

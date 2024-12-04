@@ -15,42 +15,50 @@
     "main_block": {
       "type": "component",
       "repeatable": false,
-      "component": "layout.pages-main-block"
+      "component": "layout.pages-main-block",
+      "required": true
     },
     "process_step_1": {
       "type": "component",
       "repeatable": false,
-      "component": "process.process-block-1"
+      "component": "process.process-block-1",
+      "required": true
     },
     "process_step_2": {
       "type": "component",
       "repeatable": false,
-      "component": "process.process-block-2"
+      "component": "process.process-block-2",
+      "required": true
     },
     "process_step_3": {
       "type": "component",
       "repeatable": false,
-      "component": "process.process-block-2"
+      "component": "process.process-block-2",
+      "required": true
     },
     "process_step_4": {
       "type": "component",
       "repeatable": false,
-      "component": "process.process-block-2"
+      "component": "process.process-block-2",
+      "required": true
     },
     "features_block": {
       "type": "component",
       "repeatable": false,
-      "component": "features-block.features-block"
+      "component": "features-block.features-block",
+      "required": true
     },
     "consultion_process": {
       "type": "component",
       "repeatable": false,
-      "component": "free-consultation-process.free-consultation-process"
+      "component": "free-consultation-process.free-consultation-process",
+      "required": true
     },
     "seo": {
       "type": "component",
       "repeatable": false,
-      "component": "layout.seo-pages-description"
+      "component": "layout.seo-pages-description",
+      "required": true
     }
   }
 }

@@ -15,23 +15,26 @@
     "footer": {
       "type": "component",
       "repeatable": false,
-      "component": "layout.footer"
+      "component": "layout.footer",
+      "required": true
     },
     "header": {
       "type": "component",
       "repeatable": false,
-      "component": "layout.header"
+      "component": "layout.header",
+      "required": true
     },
     "schedule_a_consultation_button": {
       "type": "component",
       "repeatable": false,
-      "component": "layout.button"
+      "component": "layout.button",
+      "required": true
     },
     "ppc_troubleshooting_button": {
       "type": "component",
       "repeatable": false,
       "component": "layout.button",
-      "required": false
+      "required": true
     }
   }
 }

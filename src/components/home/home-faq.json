@@ -7,12 +7,14 @@
   "options": {},
   "attributes": {
     "title": {
-      "type": "richtext"
+      "type": "richtext",
+      "required": true
     },
     "button": {
       "type": "component",
       "repeatable": false,
-      "component": "layout.string-button"
+      "component": "layout.string-button",
+      "required": true
     },
     "faqs": {
       "type": "relation",

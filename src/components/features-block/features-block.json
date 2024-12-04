@@ -22,7 +22,8 @@
     "features_items": {
       "type": "component",
       "repeatable": true,
-      "component": "features-block.features-block-list-item"
+      "component": "features-block.features-block-list-item",
+      "required": true
     }
   }
 }

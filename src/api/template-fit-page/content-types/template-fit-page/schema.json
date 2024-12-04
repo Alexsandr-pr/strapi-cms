@@ -15,27 +15,32 @@
     "main_block": {
       "type": "component",
       "repeatable": false,
-      "component": "fit.main-block-fit"
+      "component": "fit.main-block-fit",
+      "required": true
     },
     "second_block": {
       "type": "component",
       "repeatable": false,
-      "component": "fit.second-block-fit"
+      "component": "fit.second-block-fit",
+      "required": true
     },
     "features_block": {
       "type": "component",
       "repeatable": false,
-      "component": "features-block.features-block"
+      "component": "features-block.features-block",
+      "required": true
     },
     "consultion_process": {
       "type": "component",
       "repeatable": false,
-      "component": "free-consultation-process.free-consultation-process"
+      "component": "free-consultation-process.free-consultation-process",
+      "required": true
     },
     "seo": {
       "type": "component",
       "repeatable": false,
-      "component": "layout.seo-pages-description"
+      "component": "layout.seo-pages-description",
+      "required": true
     }
   }
 }

@@ -1,7 +1,8 @@
 {
   "collectionName": "components_example_industries_example_industries",
   "info": {
-    "displayName": "Example Industries"
+    "displayName": "Example Industries",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -14,16 +15,17 @@
       "required": true
     },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "videos"
-      ],
-      "type": "media",
-      "multiple": false,
-      "required": true
+      ]
     },
     "title": {
-      "type": "richtext"
+      "type": "richtext",
+      "required": true
     }
   }
 }

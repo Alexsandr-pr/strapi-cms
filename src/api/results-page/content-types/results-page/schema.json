@@ -15,27 +15,32 @@
     "main_block": {
       "type": "component",
       "repeatable": false,
-      "component": "layout.pages-main-block"
+      "component": "layout.pages-main-block",
+      "required": true
     },
     "examples_results": {
       "type": "component",
       "repeatable": true,
-      "component": "result-example.result-example"
+      "component": "result-example.result-example",
+      "required": true
     },
     "advantages": {
       "type": "component",
       "repeatable": false,
-      "component": "layout.results-our-advantages"
+      "component": "layout.results-our-advantages",
+      "required": true
     },
     "seo": {
       "type": "component",
       "repeatable": false,
-      "component": "layout.seo-pages-description"
+      "component": "layout.seo-pages-description",
+      "required": true
     },
     "consultion_process": {
       "type": "component",
       "repeatable": false,
-      "component": "free-consultation-process.free-consultation-process"
+      "component": "free-consultation-process.free-consultation-process",
+      "required": true
     }
   }
 }
