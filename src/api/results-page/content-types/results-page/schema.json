@@ -4,7 +4,8 @@
   "info": {
     "singularName": "results-page",
     "pluralName": "results-pages",
-    "displayName": "Results Page"
+    "displayName": "Results Page",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,6 +16,26 @@
       "type": "component",
       "repeatable": false,
       "component": "layout.pages-main-block"
+    },
+    "examples_results": {
+      "type": "component",
+      "repeatable": true,
+      "component": "result-example.result-example"
+    },
+    "advantages": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.results-our-advantages"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.seo-pages-description"
+    },
+    "consultion_process": {
+      "type": "component",
+      "repeatable": false,
+      "component": "free-consultation-process.free-consultation-process"
     }
   }
 }

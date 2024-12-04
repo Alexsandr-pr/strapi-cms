@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_layout_advantages_strings",
+  "info": {
+    "displayName": "Advantages String",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    }
+  }
+}

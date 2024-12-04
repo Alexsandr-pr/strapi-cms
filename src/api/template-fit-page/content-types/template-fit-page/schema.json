@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "process_pages",
+  "collectionName": "template_fit_pages",
   "info": {
-    "singularName": "process-page",
-    "pluralName": "process-pages",
-    "displayName": "Process Page",
+    "singularName": "template-fit-page",
+    "pluralName": "template-fit-pages",
+    "displayName": "Template Fit Page",
     "description": ""
   },
   "options": {
@@ -15,27 +15,12 @@
     "main_block": {
       "type": "component",
       "repeatable": false,
-      "component": "layout.pages-main-block"
+      "component": "fit.main-block-fit"
     },
-    "process_step_1": {
+    "second_block": {
       "type": "component",
       "repeatable": false,
-      "component": "process.process-block-1"
-    },
-    "process_step_2": {
-      "type": "component",
-      "repeatable": false,
-      "component": "process.process-block-2"
-    },
-    "process_step_3": {
-      "type": "component",
-      "repeatable": false,
-      "component": "process.process-block-2"
-    },
-    "process_step_4": {
-      "type": "component",
-      "repeatable": false,
-      "component": "process.process-block-2"
+      "component": "fit.second-block-fit"
     },
     "features_block": {
       "type": "component",

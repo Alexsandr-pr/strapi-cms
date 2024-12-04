@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_fit_main_block_fits",
+  "info": {
+    "displayName": "MainBlockFit",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "richtext",
+      "required": true
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.button"
+    },
+    "right_decor": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "description": {
+      "type": "customField",
+      "options": {
+        "preset": "default"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "list_items": {
+      "displayName": "List Element FIt Page",
+      "type": "component",
+      "repeatable": true,
+      "component": "fit.list-element-f-it-page"
+    }
+  }
+}

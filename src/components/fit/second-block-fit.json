@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_fit_second_block_fits",
+  "info": {
+    "displayName": "SecondBlockFit",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text",
+      "required": true,
+      "default": "Stuck with your PPC campaign? Need a breakthrough?"
+    },
+    "description": {
+      "type": "text",
+      "default": "We love problem solving. Submit your challenge, and let’s see if we can solve it together – for free!",
+      "required": true
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.button"
+    }
+  }
+}

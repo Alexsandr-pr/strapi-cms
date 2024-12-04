@@ -1,7 +1,8 @@
 {
   "collectionName": "components_call_to_action_block_call_to_action_blocks",
   "info": {
-    "displayName": "CallToActionBlock"
+    "displayName": "CallToActionBlock",
+    "description": ""
   },
   "options": {},
   "attributes": {

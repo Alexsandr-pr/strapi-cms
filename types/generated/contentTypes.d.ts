@@ -411,6 +411,36 @@ export interface ApiAboutPageAboutPage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
+  collectionName: 'categories';
+  info: {
+    displayName: 'Category';
+    pluralName: 'categories';
+    singularName: 'category';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::category.category'
+    > &
+      Schema.Attribute.Private;
+    posts: Schema.Attribute.Relation<'oneToMany', 'api::post.post'>;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'>;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFaqCategoryFaqCategory extends Struct.CollectionTypeSchema {
   collectionName: 'faq_categories';
   info: {
@@ -656,6 +686,36 @@ export interface ApiIndustriesPageIndustriesPage
   };
 }
 
+export interface ApiPostTypePostType extends Struct.CollectionTypeSchema {
+  collectionName: 'post_types';
+  info: {
+    displayName: 'Post Type';
+    pluralName: 'post-types';
+    singularName: 'post-type';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::post-type.post-type'
+    > &
+      Schema.Attribute.Private;
+    posts: Schema.Attribute.Relation<'oneToMany', 'api::post.post'>;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'>;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPostPost extends Struct.CollectionTypeSchema {
   collectionName: 'posts';
   info: {
@@ -668,6 +728,7 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    category: Schema.Attribute.Relation<'manyToOne', 'api::category.category'>;
     content: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
@@ -678,12 +739,53 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    image: Schema.Attribute.Media<'images'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::post.post'> &
       Schema.Attribute.Private;
+    post_type: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::post-type.post-type'
+    >;
     publishedAt: Schema.Attribute.DateTime;
+    short_description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
     slug: Schema.Attribute.UID<'title'>;
     title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPrivacyPolicyPagePrivacyPolicyPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'privacy_policy_pages';
+  info: {
+    displayName: 'Privacy Policy Page';
+    pluralName: 'privacy-policy-pages';
+    singularName: 'privacy-policy-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::privacy-policy-page.privacy-policy-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.Text;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -693,6 +795,7 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
 export interface ApiProcessPageProcessPage extends Struct.SingleTypeSchema {
   collectionName: 'process_pages';
   info: {
+    description: '';
     displayName: 'Process Page';
     pluralName: 'process-pages';
     singularName: 'process-page';
@@ -701,9 +804,17 @@ export interface ApiProcessPageProcessPage extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    consultion_process: Schema.Attribute.Component<
+      'free-consultation-process.free-consultation-process',
+      false
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    features_block: Schema.Attribute.Component<
+      'features-block.features-block',
+      false
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -711,7 +822,24 @@ export interface ApiProcessPageProcessPage extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     main_block: Schema.Attribute.Component<'layout.pages-main-block', false>;
+    process_step_1: Schema.Attribute.Component<
+      'process.process-block-1',
+      false
+    >;
+    process_step_2: Schema.Attribute.Component<
+      'process.process-block-2',
+      false
+    >;
+    process_step_3: Schema.Attribute.Component<
+      'process.process-block-2',
+      false
+    >;
+    process_step_4: Schema.Attribute.Component<
+      'process.process-block-2',
+      false
+    >;
     publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'layout.seo-pages-description', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -721,9 +849,92 @@ export interface ApiProcessPageProcessPage extends Struct.SingleTypeSchema {
 export interface ApiResultsPageResultsPage extends Struct.SingleTypeSchema {
   collectionName: 'results_pages';
   info: {
+    description: '';
     displayName: 'Results Page';
     pluralName: 'results-pages';
     singularName: 'results-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    advantages: Schema.Attribute.Component<
+      'layout.results-our-advantages',
+      false
+    >;
+    consultion_process: Schema.Attribute.Component<
+      'free-consultation-process.free-consultation-process',
+      false
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    examples_results: Schema.Attribute.Component<
+      'result-example.result-example',
+      true
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::results-page.results-page'
+    > &
+      Schema.Attribute.Private;
+    main_block: Schema.Attribute.Component<'layout.pages-main-block', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'layout.seo-pages-description', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTemplateFitPageTemplateFitPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'template_fit_pages';
+  info: {
+    description: '';
+    displayName: 'Template Fit Page';
+    pluralName: 'template-fit-pages';
+    singularName: 'template-fit-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    consultion_process: Schema.Attribute.Component<
+      'free-consultation-process.free-consultation-process',
+      false
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    features_block: Schema.Attribute.Component<
+      'features-block.features-block',
+      false
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::template-fit-page.template-fit-page'
+    > &
+      Schema.Attribute.Private;
+    main_block: Schema.Attribute.Component<'fit.main-block-fit', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    second_block: Schema.Attribute.Component<'fit.second-block-fit', false>;
+    seo: Schema.Attribute.Component<'layout.seo-pages-description', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTermsOfUsePageTermsOfUsePage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'terms_of_use_pages';
+  info: {
+    displayName: 'Terms of Use Page';
+    pluralName: 'terms-of-use-pages';
+    singularName: 'terms-of-use-page';
   };
   options: {
     draftAndPublish: true;
@@ -735,11 +946,11 @@ export interface ApiResultsPageResultsPage extends Struct.SingleTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::results-page.results-page'
+      'api::terms-of-use-page.terms-of-use-page'
     > &
       Schema.Attribute.Private;
-    main_block: Schema.Attribute.Component<'layout.pages-main-block', false>;
     publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.Text;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1256,15 +1467,20 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::about-page.about-page': ApiAboutPageAboutPage;
+      'api::category.category': ApiCategoryCategory;
       'api::faq-category.faq-category': ApiFaqCategoryFaqCategory;
       'api::faq-page.faq-page': ApiFaqPageFaqPage;
       'api::faq.faq': ApiFaqFaq;
       'api::global-setting.global-setting': ApiGlobalSettingGlobalSetting;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::industries-page.industries-page': ApiIndustriesPageIndustriesPage;
+      'api::post-type.post-type': ApiPostTypePostType;
       'api::post.post': ApiPostPost;
+      'api::privacy-policy-page.privacy-policy-page': ApiPrivacyPolicyPagePrivacyPolicyPage;
       'api::process-page.process-page': ApiProcessPageProcessPage;
       'api::results-page.results-page': ApiResultsPageResultsPage;
+      'api::template-fit-page.template-fit-page': ApiTemplateFitPageTemplateFitPage;
+      'api::terms-of-use-page.terms-of-use-page': ApiTermsOfUsePageTermsOfUsePage;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

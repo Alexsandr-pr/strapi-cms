@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_layout_results_our_advantages",
+  "info": {
+    "displayName": "Results - Our Advantages"
+  },
+  "options": {},
+  "attributes": {
+    "advantages_string": {
+      "displayName": "Advantages String",
+      "type": "component",
+      "repeatable": true,
+      "component": "layout.advantages-string"
+    },
+    "result_title": {
+      "type": "string"
+    }
+  }
+}

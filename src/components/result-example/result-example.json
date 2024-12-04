@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_result_example_result_examples",
+  "info": {
+    "displayName": "Result Example"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "richtext",
+      "required": true
+    },
+    "description": {
+      "type": "customField",
+      "options": {
+        "preset": "default"
+      },
+      "customField": "plugin::ckeditor5.CKEditor",
+      "required": true
+    },
+    "numbers": {
+      "type": "component",
+      "repeatable": true,
+      "component": "explore-results-preview.explore-results-number-item",
+      "max": 6,
+      "min": 6,
+      "required": true
+    }
+  }
+}

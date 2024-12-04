@@ -4,6 +4,7 @@ export interface CallToActionBlockCallToActionBlock
   extends Struct.ComponentSchema {
   collectionName: 'components_call_to_action_block_call_to_action_blocks';
   info: {
+    description: '';
     displayName: 'CallToActionBlock';
   };
   attributes: {
@@ -104,6 +105,57 @@ export interface FeaturesBlockFeaturesBlockListItem
   attributes: {
     description: Schema.Attribute.Text & Schema.Attribute.Required;
     image: Schema.Attribute.Media<'images'>;
+  };
+}
+
+export interface FitListElementFItPage extends Struct.ComponentSchema {
+  collectionName: 'components_fit_list_element_f_it_pages';
+  info: {
+    displayName: 'List Element FIt Page';
+  };
+  attributes: {
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    title: Schema.Attribute.Text & Schema.Attribute.Required;
+  };
+}
+
+export interface FitMainBlockFit extends Struct.ComponentSchema {
+  collectionName: 'components_fit_main_block_fits';
+  info: {
+    description: '';
+    displayName: 'MainBlockFit';
+  };
+  attributes: {
+    button: Schema.Attribute.Component<'layout.button', false>;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    list_items: Schema.Attribute.Component<'fit.list-element-f-it-page', true>;
+    right_decor: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.RichText & Schema.Attribute.Required;
+  };
+}
+
+export interface FitSecondBlockFit extends Struct.ComponentSchema {
+  collectionName: 'components_fit_second_block_fits';
+  info: {
+    description: '';
+    displayName: 'SecondBlockFit';
+  };
+  attributes: {
+    button: Schema.Attribute.Component<'layout.button', false>;
+    description: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'We love problem solving. Submit your challenge, and let\u2019s see if we can solve it together \u2013 for free!'>;
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    title: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Stuck with your PPC campaign? Need a breakthrough?'>;
   };
 }
 
@@ -280,6 +332,17 @@ export interface HomeLogoConceptBlockItem extends Struct.ComponentSchema {
   };
 }
 
+export interface LayoutAdvantagesString extends Struct.ComponentSchema {
+  collectionName: 'components_layout_advantages_strings';
+  info: {
+    description: '';
+    displayName: 'Advantages String';
+  };
+  attributes: {
+    title: Schema.Attribute.Text;
+  };
+}
+
 export interface LayoutButton extends Struct.ComponentSchema {
   collectionName: 'components_layout_buttons';
   info: {
@@ -354,6 +417,20 @@ export interface LayoutPagesMainBlock extends Struct.ComponentSchema {
   };
 }
 
+export interface LayoutResultsOurAdvantages extends Struct.ComponentSchema {
+  collectionName: 'components_layout_results_our_advantages';
+  info: {
+    displayName: 'Results - Our Advantages';
+  };
+  attributes: {
+    advantages_string: Schema.Attribute.Component<
+      'layout.advantages-string',
+      true
+    >;
+    result_title: Schema.Attribute.String;
+  };
+}
+
 export interface LayoutSeoPagesDescription extends Struct.ComponentSchema {
   collectionName: 'components_layout_seo_pages_descriptions';
   info: {
@@ -412,6 +489,109 @@ export interface ProcessStepsBlockProcessStepsBlockItem
   };
 }
 
+export interface ProcessProcessBlock1 extends Struct.ComponentSchema {
+  collectionName: 'components_process_process_block_1s';
+  info: {
+    description: '';
+    displayName: 'Process Block 1';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    step_1: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    step_2: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    step_3: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    step_4: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    title: Schema.Attribute.RichText;
+  };
+}
+
+export interface ProcessProcessBlock2 extends Struct.ComponentSchema {
+  collectionName: 'components_process_process_block_2s';
+  info: {
+    description: '';
+    displayName: 'Process Block 2';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    step_1: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    step_2: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    step_3: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    title: Schema.Attribute.RichText;
+  };
+}
+
+export interface ResultExampleResultExample extends Struct.ComponentSchema {
+  collectionName: 'components_result_example_result_examples';
+  info: {
+    displayName: 'Result Example';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    numbers: Schema.Attribute.Component<
+      'explore-results-preview.explore-results-number-item',
+      true
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 6;
+          min: 6;
+        },
+        number
+      >;
+    title: Schema.Attribute.RichText & Schema.Attribute.Required;
+  };
+}
+
 export interface SocialSocialLink extends Struct.ComponentSchema {
   collectionName: 'components_social_social_links';
   info: {
@@ -435,6 +615,9 @@ declare module '@strapi/strapi' {
       'explore-results-preview.explore-results-preview': ExploreResultsPreviewExploreResultsPreview;
       'features-block.features-block': FeaturesBlockFeaturesBlock;
       'features-block.features-block-list-item': FeaturesBlockFeaturesBlockListItem;
+      'fit.list-element-f-it-page': FitListElementFItPage;
+      'fit.main-block-fit': FitMainBlockFit;
+      'fit.second-block-fit': FitSecondBlockFit;
       'free-consultation-process.free-consultation-process': FreeConsultationProcessFreeConsultationProcess;
       'home-author-info.about-author-info': HomeAuthorInfoAboutAuthorInfo;
       'home-author-info.home-author-info': HomeAuthorInfoHomeAuthorInfo;
@@ -444,15 +627,20 @@ declare module '@strapi/strapi' {
       'home.home-ppc-resources-links': HomeHomePpcResourcesLinks;
       'home.logo-concept-block': HomeLogoConceptBlock;
       'home.logo-concept-block-item': HomeLogoConceptBlockItem;
+      'layout.advantages-string': LayoutAdvantagesString;
       'layout.button': LayoutButton;
       'layout.footer': LayoutFooter;
       'layout.footer-bottom': LayoutFooterBottom;
       'layout.header': LayoutHeader;
       'layout.pages-main-block': LayoutPagesMainBlock;
+      'layout.results-our-advantages': LayoutResultsOurAdvantages;
       'layout.seo-pages-description': LayoutSeoPagesDescription;
       'layout.string-button': LayoutStringButton;
       'process-steps-block.process-steps-block': ProcessStepsBlockProcessStepsBlock;
       'process-steps-block.process-steps-block-item': ProcessStepsBlockProcessStepsBlockItem;
+      'process.process-block-1': ProcessProcessBlock1;
+      'process.process-block-2': ProcessProcessBlock2;
+      'result-example.result-example': ResultExampleResultExample;
       'social.social-link': SocialSocialLink;
     }
   }

@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_fit_list_element_f_it_pages",
+  "info": {
+    "displayName": "List Element FIt Page"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}
