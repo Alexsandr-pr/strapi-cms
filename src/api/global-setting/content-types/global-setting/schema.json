@@ -35,6 +35,11 @@
       "repeatable": false,
       "component": "layout.button",
       "required": true
+    },
+    "share_social_links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "social.share-social-link"
     }
   }
 }

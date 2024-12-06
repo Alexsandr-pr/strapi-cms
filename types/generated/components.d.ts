@@ -408,6 +408,24 @@ export interface LayoutFooterBottom extends Struct.ComponentSchema {
   };
 }
 
+export interface LayoutForm extends Struct.ComponentSchema {
+  collectionName: 'components_layout_form_s';
+  info: {
+    displayName: 'Form ';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    label: Schema.Attribute.RichText;
+    title: Schema.Attribute.RichText;
+  };
+}
+
 export interface LayoutHeader extends Struct.ComponentSchema {
   collectionName: 'components_layout_headers';
   info: {
@@ -628,6 +646,17 @@ export interface ResultExampleResultExample extends Struct.ComponentSchema {
   };
 }
 
+export interface SocialShareSocialLink extends Struct.ComponentSchema {
+  collectionName: 'components_social_share_social_links';
+  info: {
+    displayName: 'Share Social Link';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    link: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SocialSocialLink extends Struct.ComponentSchema {
   collectionName: 'components_social_social_links';
   info: {
@@ -667,6 +696,7 @@ declare module '@strapi/strapi' {
       'layout.button': LayoutButton;
       'layout.footer': LayoutFooter;
       'layout.footer-bottom': LayoutFooterBottom;
+      'layout.form': LayoutForm;
       'layout.header': LayoutHeader;
       'layout.pages-main-block': LayoutPagesMainBlock;
       'layout.results-our-advantages': LayoutResultsOurAdvantages;
@@ -677,6 +707,7 @@ declare module '@strapi/strapi' {
       'process.process-block-1': ProcessProcessBlock1;
       'process.process-block-2': ProcessProcessBlock2;
       'result-example.result-example': ResultExampleResultExample;
+      'social.share-social-link': SocialShareSocialLink;
       'social.social-link': SocialSocialLink;
     }
   }

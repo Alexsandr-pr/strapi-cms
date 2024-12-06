@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_social_share_social_links",
+  "info": {
+    "displayName": "Share Social Link"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "link": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

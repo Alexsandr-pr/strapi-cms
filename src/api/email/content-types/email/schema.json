@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "emails",
+  "info": {
+    "singularName": "email",
+    "pluralName": "emails",
+    "displayName": "Emails",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "fullName": {
+      "type": "text"
+    },
+    "email": {
+      "type": "email"
+    },
+    "message": {
+      "type": "text"
+    },
+    "date": {
+      "type": "string"
+    },
+    "isChecked": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

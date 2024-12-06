@@ -446,6 +446,36 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiEmailEmail extends Struct.CollectionTypeSchema {
+  collectionName: 'emails';
+  info: {
+    description: '';
+    displayName: 'Emails';
+    pluralName: 'emails';
+    singularName: 'email';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    date: Schema.Attribute.String;
+    email: Schema.Attribute.Email;
+    fullName: Schema.Attribute.Text;
+    isChecked: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::email.email'> &
+      Schema.Attribute.Private;
+    message: Schema.Attribute.Text;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFaqCategoryFaqCategory extends Struct.CollectionTypeSchema {
   collectionName: 'faq_categories';
   info: {
@@ -581,6 +611,10 @@ export interface ApiGlobalSettingGlobalSetting extends Struct.SingleTypeSchema {
       false
     > &
       Schema.Attribute.Required;
+    share_social_links: Schema.Attribute.Component<
+      'social.share-social-link',
+      true
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -813,6 +847,7 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
       'api::post-type.post-type'
     >;
     publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'layout.seo-pages-description', false>;
     short_description: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
@@ -822,6 +857,39 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
       >;
     slug: Schema.Attribute.UID<'title'>;
     title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPpcTroubleshootingPagePpcTroubleshootingPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'ppc_troubleshooting_pages';
+  info: {
+    description: '';
+    displayName: 'PPC Troubleshooting Page';
+    pluralName: 'ppc-troubleshooting-pages';
+    singularName: 'ppc-troubleshooting-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    form: Schema.Attribute.Component<'layout.form', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::ppc-troubleshooting-page.ppc-troubleshooting-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'layout.seo-pages-description', false>;
+    sub_title: Schema.Attribute.RichText;
+    title: Schema.Attribute.RichText;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1553,6 +1621,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::about-page.about-page': ApiAboutPageAboutPage;
       'api::category.category': ApiCategoryCategory;
+      'api::email.email': ApiEmailEmail;
       'api::faq-category.faq-category': ApiFaqCategoryFaqCategory;
       'api::faq-page.faq-page': ApiFaqPageFaqPage;
       'api::faq.faq': ApiFaqFaq;
@@ -1562,6 +1631,7 @@ declare module '@strapi/strapi' {
       'api::industries-page.industries-page': ApiIndustriesPageIndustriesPage;
       'api::post-type.post-type': ApiPostTypePostType;
       'api::post.post': ApiPostPost;
+      'api::ppc-troubleshooting-page.ppc-troubleshooting-page': ApiPpcTroubleshootingPagePpcTroubleshootingPage;
       'api::privacy-policy-page.privacy-policy-page': ApiPrivacyPolicyPagePrivacyPolicyPage;
       'api::process-page.process-page': ApiProcessPageProcessPage;
       'api::results-page.results-page': ApiResultsPageResultsPage;
