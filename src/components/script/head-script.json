@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_script_head_scripts",
+  "info": {
+    "displayName": "head_script"
+  },
+  "options": {},
+  "attributes": {
+    "script_link": {
+      "displayName": "Script Link",
+      "type": "component",
+      "repeatable": true,
+      "component": "script.script-link"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_script_script_links",
+  "info": {
+    "displayName": "Script Link",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "script_src": {
+      "type": "text"
+    }
+  }
+}

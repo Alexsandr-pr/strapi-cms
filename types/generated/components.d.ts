@@ -646,6 +646,37 @@ export interface ResultExampleResultExample extends Struct.ComponentSchema {
   };
 }
 
+export interface ScriptBodyScript extends Struct.ComponentSchema {
+  collectionName: 'components_script_body_scripts';
+  info: {
+    displayName: 'body_script';
+  };
+  attributes: {
+    script_link: Schema.Attribute.Component<'script.script-link', true>;
+  };
+}
+
+export interface ScriptHeadScript extends Struct.ComponentSchema {
+  collectionName: 'components_script_head_scripts';
+  info: {
+    displayName: 'head_script';
+  };
+  attributes: {
+    script_link: Schema.Attribute.Component<'script.script-link', true>;
+  };
+}
+
+export interface ScriptScriptLink extends Struct.ComponentSchema {
+  collectionName: 'components_script_script_links';
+  info: {
+    description: '';
+    displayName: 'Script Link';
+  };
+  attributes: {
+    script_src: Schema.Attribute.Text;
+  };
+}
+
 export interface SocialShareSocialLink extends Struct.ComponentSchema {
   collectionName: 'components_social_share_social_links';
   info: {
@@ -707,6 +738,9 @@ declare module '@strapi/strapi' {
       'process.process-block-1': ProcessProcessBlock1;
       'process.process-block-2': ProcessProcessBlock2;
       'result-example.result-example': ResultExampleResultExample;
+      'script.body-script': ScriptBodyScript;
+      'script.head-script': ScriptHeadScript;
+      'script.script-link': ScriptScriptLink;
       'social.share-social-link': SocialShareSocialLink;
       'social.social-link': SocialSocialLink;
     }

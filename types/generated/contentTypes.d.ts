@@ -587,11 +587,13 @@ export interface ApiGlobalSettingGlobalSetting extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    body_script: Schema.Attribute.Component<'script.body-script', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     footer: Schema.Attribute.Component<'layout.footer', false> &
       Schema.Attribute.Required;
+    head_script: Schema.Attribute.Component<'script.head-script', false>;
     header: Schema.Attribute.Component<'layout.header', false> &
       Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

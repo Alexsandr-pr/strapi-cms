@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_script_body_scripts",
+  "info": {
+    "displayName": "body_script"
+  },
+  "options": {},
+  "attributes": {
+    "script_link": {
+      "type": "component",
+      "repeatable": true,
+      "component": "script.script-link"
+    }
+  }
+}
