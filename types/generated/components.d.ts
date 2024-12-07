@@ -481,6 +481,7 @@ export interface LayoutSeoPagesDescription extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.Text & Schema.Attribute.Required;
+    image_open_graph: Schema.Attribute.Media<'images'>;
     keywords: Schema.Attribute.Text;
     title: Schema.Attribute.Text & Schema.Attribute.Required;
   };

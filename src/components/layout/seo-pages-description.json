@@ -16,6 +16,13 @@
     },
     "keywords": {
       "type": "text"
+    },
+    "image_open_graph": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
