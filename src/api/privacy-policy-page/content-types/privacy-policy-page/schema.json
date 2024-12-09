@@ -27,6 +27,28 @@
       "type": "component",
       "repeatable": false,
       "component": "layout.seo-pages-description"
+    },
+    "short_description": {
+      "type": "text",
+      "default": "Google Tag Manager (GTM) is an indispensable tool for digital marketers, offering a robust platform to manage and deploy marketing tags (snippets of code or tracking pixels) without modifying the source code. For intermediate and advanced digital marketers, mastering GTM can significantly enhance tracking capabilities, streamline tag management, and improve overall marketing performance. This article delves into the intricacies of GTM, covering account setup, implementation, and common mistakes to avoid."
+    },
+    "conclusion_title": {
+      "type": "text"
+    },
+    "conclusion_content": {
+      "type": "customField",
+      "options": {
+        "preset": "default"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
     }
   }
 }

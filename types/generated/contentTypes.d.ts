@@ -942,6 +942,14 @@ export interface ApiPrivacyPolicyPagePrivacyPolicyPage
     draftAndPublish: true;
   };
   attributes: {
+    conclusion_content: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    conclusion_title: Schema.Attribute.Text;
     content: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
@@ -952,6 +960,7 @@ export interface ApiPrivacyPolicyPagePrivacyPolicyPage
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -960,6 +969,8 @@ export interface ApiPrivacyPolicyPagePrivacyPolicyPage
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'layout.seo-pages-description', false>;
+    short_description: Schema.Attribute.Text &
+      Schema.Attribute.DefaultTo<'Google Tag Manager (GTM) is an indispensable tool for digital marketers, offering a robust platform to manage and deploy marketing tags (snippets of code or tracking pixels) without modifying the source code. For intermediate and advanced digital marketers, mastering GTM can significantly enhance tracking capabilities, streamline tag management, and improve overall marketing performance. This article delves into the intricacies of GTM, covering account setup, implementation, and common mistakes to avoid.'>;
     title: Schema.Attribute.Text & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1134,6 +1145,14 @@ export interface ApiTermsOfUsePageTermsOfUsePage
     draftAndPublish: true;
   };
   attributes: {
+    conclusion_content: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    conclusion_title: Schema.Attribute.Text;
     content: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
@@ -1144,6 +1163,7 @@ export interface ApiTermsOfUsePageTermsOfUsePage
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    image: Schema.Attribute.Media<'images'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1152,6 +1172,7 @@ export interface ApiTermsOfUsePageTermsOfUsePage
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'layout.seo-pages-description', false>;
+    short_description: Schema.Attribute.Text;
     title: Schema.Attribute.Text & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
