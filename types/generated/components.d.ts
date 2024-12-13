@@ -411,6 +411,7 @@ export interface LayoutFooterBottom extends Struct.ComponentSchema {
 export interface LayoutForm extends Struct.ComponentSchema {
   collectionName: 'components_layout_form_s';
   info: {
+    description: '';
     displayName: 'Form ';
   };
   attributes: {
@@ -422,6 +423,15 @@ export interface LayoutForm extends Struct.ComponentSchema {
         }
       >;
     label: Schema.Attribute.RichText;
+    modal_hide_delay: Schema.Attribute.BigInteger &
+      Schema.Attribute.DefaultTo<'7000'>;
+    modal_success_message: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
     title: Schema.Attribute.RichText;
   };
 }
