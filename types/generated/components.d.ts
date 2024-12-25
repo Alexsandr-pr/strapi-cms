@@ -387,6 +387,9 @@ export interface LayoutFooter extends Struct.ComponentSchema {
   attributes: {
     footer_bottom: Schema.Attribute.Component<'layout.footer-bottom', false> &
       Schema.Attribute.Required;
+    showFollowOn: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
     socials_links: Schema.Attribute.Component<'social.social-link', true> &
       Schema.Attribute.Required;
     socials_title: Schema.Attribute.String & Schema.Attribute.Required;

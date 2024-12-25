@@ -21,6 +21,11 @@
       "repeatable": false,
       "component": "layout.footer-bottom",
       "required": true
+    },
+    "showFollowOn": {
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   }
 }
