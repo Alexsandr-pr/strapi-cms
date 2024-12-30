@@ -880,7 +880,8 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
       'api::post-type.post-type'
     >;
     publishedAt: Schema.Attribute.DateTime;
-    seo: Schema.Attribute.Component<'layout.seo-pages-description', false>;
+    seo: Schema.Attribute.Component<'layout.seo-pages-description', false> &
+      Schema.Attribute.Required;
     short_description: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
