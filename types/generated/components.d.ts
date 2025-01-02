@@ -280,6 +280,22 @@ export interface HomeHomeFaq extends Struct.ComponentSchema {
   };
 }
 
+export interface HomeHomeHowToColumn extends Struct.ComponentSchema {
+  collectionName: 'components_home_home_how_to_columns';
+  info: {
+    displayName: 'Home How To Column';
+  };
+  attributes: {
+    button: Schema.Attribute.Component<'layout.string-button', false> &
+      Schema.Attribute.Required;
+    how_to_posts: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::how-to-post.how-to-post'
+    >;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface HomeHomePageMainBlock extends Struct.ComponentSchema {
   collectionName: 'components_home_home_page_main_blocks';
   info: {
@@ -297,12 +313,15 @@ export interface HomeHomePpcResourcesColumn extends Struct.ComponentSchema {
   collectionName: 'components_home_home_ppc_resources_columns';
   info: {
     description: '';
-    displayName: 'Home PPC Resources Column';
+    displayName: 'Home PPC Troubleshooting Column';
   };
   attributes: {
     button: Schema.Attribute.Component<'layout.string-button', false> &
       Schema.Attribute.Required;
-    posts: Schema.Attribute.Relation<'oneToMany', 'api::post.post'>;
+    ppc_troubleshooting_posts: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::ppc-troubleshooting-post.ppc-troubleshooting-post'
+    >;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
@@ -314,9 +333,14 @@ export interface HomeHomePpcResourcesLinks extends Struct.ComponentSchema {
     displayName: 'Home PPC Resources Links';
   };
   attributes: {
-    columns: Schema.Attribute.Component<
+    how_to_column: Schema.Attribute.Component<
+      'home.home-how-to-column',
+      false
+    > &
+      Schema.Attribute.Required;
+    ppc_column: Schema.Attribute.Component<
       'home.home-ppc-resources-column',
-      true
+      false
     > &
       Schema.Attribute.Required;
     title: Schema.Attribute.RichText & Schema.Attribute.Required;
@@ -732,6 +756,7 @@ declare module '@strapi/strapi' {
       'home-author-info.about-author-info': HomeAuthorInfoAboutAuthorInfo;
       'home-author-info.home-author-info': HomeAuthorInfoHomeAuthorInfo;
       'home.home-faq': HomeHomeFaq;
+      'home.home-how-to-column': HomeHomeHowToColumn;
       'home.home-page-main-block': HomeHomePageMainBlock;
       'home.home-ppc-resources-column': HomeHomePpcResourcesColumn;
       'home.home-ppc-resources-links': HomeHomePpcResourcesLinks;

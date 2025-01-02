@@ -13,14 +13,16 @@
   "pluginOptions": {},
   "attributes": {
     "title": {
-      "type": "text"
+      "type": "string",
+      "required": true
     },
     "content": {
       "type": "customField",
       "options": {
         "preset": "default"
       },
-      "customField": "plugin::ckeditor5.CKEditor"
+      "customField": "plugin::ckeditor5.CKEditor",
+      "required": true
     },
     "faq_category": {
       "type": "relation",

@@ -10,10 +10,16 @@
       "type": "richtext",
       "required": true
     },
-    "columns": {
+    "ppc_column": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "home.home-ppc-resources-column",
+      "required": true
+    },
+    "how_to_column": {
+      "type": "component",
+      "repeatable": false,
+      "component": "home.home-how-to-column",
       "required": true
     }
   }

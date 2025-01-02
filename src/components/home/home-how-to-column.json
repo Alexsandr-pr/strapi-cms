@@ -1,8 +1,7 @@
 {
-  "collectionName": "components_home_home_ppc_resources_columns",
+  "collectionName": "components_home_home_how_to_columns",
   "info": {
-    "displayName": "Home PPC Troubleshooting Column",
-    "description": ""
+    "displayName": "Home How To Column"
   },
   "options": {},
   "attributes": {
@@ -10,10 +9,10 @@
       "type": "string",
       "required": true
     },
-    "ppc_troubleshooting_posts": {
+    "how_to_posts": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::ppc-troubleshooting-post.ppc-troubleshooting-post"
+      "target": "api::how-to-post.how-to-post"
     },
     "button": {
       "type": "component",

@@ -1,11 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "posts",
+  "collectionName": "ppc_troubleshooting_posts",
   "info": {
-    "singularName": "post",
-    "pluralName": "posts",
-    "displayName": "Post",
-    "description": ""
+    "singularName": "ppc-troubleshooting-post",
+    "pluralName": "ppc-troubleshooting-posts",
+    "displayName": "PPC Troubleshooting Post"
   },
   "options": {
     "draftAndPublish": true
@@ -13,17 +12,13 @@
   "pluginOptions": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "slug": {
       "type": "uid",
-      "targetField": "title"
-    },
-    "post_type": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::post-type.post-type",
-      "inversedBy": "posts"
+      "targetField": "title",
+      "required": true
     },
     "short_description": {
       "type": "customField",
@@ -33,25 +28,24 @@
       "customField": "plugin::ckeditor5.CKEditor"
     },
     "image": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
       "allowedTypes": [
         "images"
-      ]
+      ],
+      "type": "media",
+      "multiple": false
     },
     "content": {
       "type": "customField",
       "options": {
         "preset": "default"
       },
+      "required": true,
       "customField": "plugin::ckeditor5.CKEditor"
     },
     "category": {
       "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::category.category",
-      "inversedBy": "posts"
+      "relation": "oneToOne",
+      "target": "api::category.category"
     },
     "conclusion": {
       "type": "customField",
@@ -61,8 +55,7 @@
       "customField": "plugin::ckeditor5.CKEditor"
     },
     "conclusion_title": {
-      "type": "text",
-      "default": "Conclusion"
+      "type": "string"
     },
     "seo": {
       "type": "component",
