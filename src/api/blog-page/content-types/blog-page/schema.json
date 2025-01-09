@@ -21,12 +21,12 @@
       "component": "layout.seo-pages-description"
     },
     "image_header_background": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": false
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }

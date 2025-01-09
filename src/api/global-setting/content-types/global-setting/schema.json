@@ -50,6 +50,21 @@
       "type": "component",
       "repeatable": false,
       "component": "script.body-script"
+    },
+    "show_date_blog_post": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "show_date_how_to_post": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "show_date_ppc_post": {
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   }
 }
